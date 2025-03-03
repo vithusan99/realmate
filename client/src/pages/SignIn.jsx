@@ -31,11 +31,8 @@ export default function SignIn() {
           }
         );
         const data = await res.json();
-        console.log(data);
+        console.log('handleSubmit',data);
         if(data.success===false){
-        console.log('error from api ');
-          // setError(data.message)
-          // setLoading(false)
           dispatch(signInFailure(data.message))
           return;
         } 
@@ -76,7 +73,7 @@ export default function SignIn() {
           <OAuth/>
       </form>
       <div className="flex gap-3 mt-2">
-        <p>Don't have an account?</p>
+        <p>Dont have an account?</p>
         <Link to={'/sign-up'} className="text-blue-700">Sign Up</Link>
       </div>
       {error && <p className="text-red-700 mt-3">{error}</p>}
